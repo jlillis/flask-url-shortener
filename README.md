@@ -15,4 +15,4 @@ A journal of the development process (JOURNAL.md) is available, intended to sati
 ```
 pip install -r requirements.txt
 ```
-3. To start the game, just run `python alien_invasion.py` in the console. Hit `Q` to exit the game.
+3. To start the web server, just run `flask run` in the console.
