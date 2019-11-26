@@ -6,8 +6,9 @@ A journal of the development process (JOURNAL.md) is available, intended to sati
 
 ## Getting Started
 ### Prerequisites
-* Python 3 (pre-installed)
-* Flask (via pip)
+* Python 3
+* Flask
+* python-dotenv
 
 ### Installation
 1. If downloaded as a .zip, unzip the project files
