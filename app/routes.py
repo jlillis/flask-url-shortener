@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request, redirect
+from app import app
+from flask import render_template, request, redirect
 import validators
 import hashlib
-
-app = Flask(__name__)
 
 short_urls = []
 
