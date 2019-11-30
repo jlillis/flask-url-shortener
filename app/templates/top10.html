@@ -2,19 +2,23 @@
 {% block body %}
 <div class="row">
     <div class="col-6 mx-auto">
-        <h1>URL listings</h1>
+        <h1>Top 10 URLs</h1>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">URL ID</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Identifier</th>
                     <th scope="col">Destination</th>
+                    <th scope="col">Hits</th>
                 </tr>
             </thead>
             <tbody>
                 {% for url in urls %}
                 <tr>
-                    <td>{{ url.url }}</td>
+                    <td>{{ url.id }}</td>
+                    <td>{{ url.identifier }}</td>
                     <td><a href="{{ url.destination }}">{{ url.destination }}</a></td>
+                    <td>{{ url.hits }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
