@@ -41,3 +41,7 @@ def redirect_url(url):
         
     return render_template("index.html", error_msg="Short URL not found.")
 
+@app.route("/urls")
+def url_listings():
+    """Renders the URL listings page."""
+    return render_template("urls.html", urls=short_urls)
