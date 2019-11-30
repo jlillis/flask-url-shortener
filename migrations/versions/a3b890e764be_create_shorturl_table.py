@@ -1,8 +1,8 @@
-"""shortURL table
+"""create shortURL table
 
-Revision ID: df82355e7c0e
+Revision ID: a3b890e764be
 Revises: 
-Create Date: 2019-11-30 17:17:57.729965
+Create Date: 2019-11-30 18:11:45.853519
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'df82355e7c0e'
+revision = 'a3b890e764be'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,6 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('identifier', sa.String(length=8), nullable=True),
     sa.Column('destination', sa.String(length=120), nullable=True),
+    sa.Column('hits', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_shortURL_identifier'), 'shortURL', ['identifier'], unique=True)
