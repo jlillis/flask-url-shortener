@@ -1,3 +1,6 @@
+# Default database file
+app.db
+
 # VSCode workspace folders
 .vscode
 

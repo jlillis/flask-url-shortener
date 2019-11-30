@@ -1,4 +1,5 @@
-from app import app
+from app import app, models, db
+from app.models import ShortURL
 from flask import render_template, request, redirect
 import validators
 import hashlib
@@ -24,9 +25,12 @@ def index():
         url_hash = hashlib.md5(url_input.encode("utf-8")).hexdigest()
 
         # Use the first 6 characters of the MD5 digest as the shortened URL
-        short_urls.append({"url": url_hash, "destination": url_input})
+        short_url = ShortURL(identifier=url_hash[:8], destination=url_input)
+        db.session.add(short_url)
+        db.session.commit()
+        #short_urls.append({"url": url_hash, "destination": url_input})
 
-        return render_template("index.html", error_msg=url_hash[:6])
+        return render_template("index.html", error_msg=short_url)
 
 
     return render_template("index.html")
@@ -34,13 +38,13 @@ def index():
 @app.route("/<url>")
 def redirect_url(url):
     """Redirects the short URL to the input URL."""
-    for record in short_urls:
-        if record.url == url:
-            return redirect(record.destination)
+    for short_url in ShortURL.query.all():
+        if short_url.identifier == url:
+            return redirect(short_url.destination)
         
     return render_template("index.html", error_msg="Short URL not found.")
 
 @app.route("/urls")
 def url_listings():
     """Renders the URL listings page."""
-    return render_template("urls.html", urls=short_urls)
+    return render_template("urls.html", urls=ShortURL.query.all())
