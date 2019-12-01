@@ -8,3 +8,6 @@ class ShortURL(db.Model):
 
     def __repr__(self):
         return f"<ShortURL (id={self.id})>"
+    
+    def __str__(self):
+        return f"<ShortURL (id={self.id})>"
