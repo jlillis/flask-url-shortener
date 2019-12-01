@@ -16,7 +16,7 @@
                 {% for url in urls %}
                 <tr>
                     <td>{{ url.id }}</td>
-                    <td>{{ url.identifier }}</td>
+                    <td><pre>{{ url.identifier }}</pre></td>
                     <td><a href="{{ url.destination }}">{{ url.destination }}</a></td>
                     <td>{{ url.hits }}</td>
                 </tr>
