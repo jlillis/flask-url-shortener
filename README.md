@@ -11,10 +11,5 @@ This is a basic URL shortener web app built using Flask.
 ```
 pip install -r requirements.txt
 ```
-3. To initialize the database, run the following commands:
-```
-flask db init
-flask db migrate
-flask db upgrade
-```
+3. To initialize the database, run `flask db upgrade`
 4. To run the web server, run `flask run`
